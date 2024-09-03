@@ -1,7 +1,8 @@
 # go-sfdc
 This is a `golang` library for interfacing with `Salesforce` APIs.
-
+---
 ## Getting Started
+
 ### Installing
 To start using GO-SFDC, install GO and run `go get`
 ```
