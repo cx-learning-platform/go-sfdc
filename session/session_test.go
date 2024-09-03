@@ -9,8 +9,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/g8rswimmer/go-sfdc"
-	"github.com/g8rswimmer/go-sfdc/credentials"
+	"github.com/cx-learning-platform/go-sfdc"
+	"github.com/cx-learning-platform/go-sfdc/credentials"
 )
 
 func TestPasswordSessionRequest(t *testing.T) {
@@ -45,6 +45,8 @@ func TestPasswordSessionRequest(t *testing.T) {
 	}
 
 	for _, scenario := range scenarios {
+
+		oauthEndpoint = scenario.creds.URL + "/services/oauth2/token"
 
 		passwordCreds, err := credentials.NewPasswordCredentials(scenario.creds)
 		if err != nil {
@@ -324,6 +326,8 @@ func TestNewPasswordSession(t *testing.T) {
 	}
 
 	for _, scenario := range scenarios {
+
+		oauthEndpoint = scenario.config.Credentials.URL() + "/services/oauth2/token"
 
 		session, err := Open(scenario.config)
 

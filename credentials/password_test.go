@@ -15,7 +15,6 @@ func mockPasswordRetriveReader(creds PasswordCredentials) io.Reader {
 	form.Add("password", creds.Password)
 	form.Add("client_id", creds.ClientID)
 	form.Add("client_secret", creds.ClientSecret)
-
 	return strings.NewReader(form.Encode())
 }
 func Test_passwordProvider_Retrieve(t *testing.T) {

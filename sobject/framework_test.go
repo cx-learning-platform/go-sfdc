@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/g8rswimmer/go-sfdc"
-	"github.com/g8rswimmer/go-sfdc/session"
+	"github.com/cx-learning-platform/go-sfdc"
+	"github.com/cx-learning-platform/go-sfdc/session"
 )
 
 func TestSalesforceAPI_Metadata(t *testing.T) {
