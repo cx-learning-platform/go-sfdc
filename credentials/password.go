@@ -17,7 +17,6 @@ func (provider *passwordProvider) Retrieve() (io.Reader, error) {
 	form.Add("password", provider.creds.Password)
 	form.Add("client_id", provider.creds.ClientID)
 	form.Add("client_secret", provider.creds.ClientSecret)
-
 	return strings.NewReader(form.Encode()), nil
 }
 

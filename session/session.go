@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/g8rswimmer/go-sfdc"
-	"github.com/g8rswimmer/go-sfdc/credentials"
+	"github.com/cx-learning-platform/go-sfdc"
+	"github.com/cx-learning-platform/go-sfdc/credentials"
 )
 
 // Session is the authentication response.  This is used to generate the
@@ -57,7 +57,7 @@ type sessionPasswordResponse struct {
 	Signature   string `json:"signature"`
 }
 
-const oauthEndpoint = "/services/oauth2/token"
+var oauthEndpoint = "https://test.salesforce.com/services/oauth2/token"
 
 // Open is used to authenticate with Salesforce and open a session.  The user will need to
 // supply the proper credentials and a HTTP client.
@@ -72,7 +72,6 @@ func Open(config sfdc.Configuration) (*Session, error) {
 		return nil, errors.New("session: configuration version can not be less than zero")
 	}
 	request, err := passwordSessionRequest(config.Credentials)
-
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +91,7 @@ func Open(config sfdc.Configuration) (*Session, error) {
 
 func passwordSessionRequest(creds *credentials.Credentials) (*http.Request, error) {
 
-	oauthURL := creds.URL() + oauthEndpoint
+	oauthURL := oauthEndpoint
 
 	body, err := creds.Retrieve()
 	if err != nil {
